@@ -15,7 +15,7 @@ class ImplementationClass implements InterfacesPractice {
     }
 }
 
-public class Main {
+public class IMain {
     public static void main(String[] args) {
         ImplementationClass impl = new ImplementationClass();
         impl.method1();
