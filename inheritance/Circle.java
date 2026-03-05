@@ -1,5 +1,8 @@
+
+import java.util.Scanner;
+
 public class Circle {
-    private double radius;
+    private final  double radius;
 
     // Constructor
     public Circle(double radius) {
@@ -23,22 +26,28 @@ public class Circle {
 
     public static void main(String[] args) {
 
-        Circle circle = new Circle(5);
-        System.out.println("Circle with radius " + circle.getRadius());
+        try (Scanner scanner = new Scanner(System.in)){
+        System.out.print("Enter the radius of the circle: ");
+        double radius = scanner.nextDouble();
+        Circle circle = new Circle(radius);
+        System.out.println("Circle with radius: " + circle.getRadius());
         System.out.println("Area: " + circle.area());
         System.out.println("Circumference: " + circle.circumference());
 
-        Cylinder cylinder = new Cylinder(5, 10);
-        System.out.println("\nCylinder with radius " + cylinder.getRadius() +
-                " and height " + cylinder.getHeight());
-        System.out.println("Volume: " + cylinder.volume());
+
+    System.out.println("Enter height of the cylinder: ");
+    double height = scanner.nextDouble();
+    Cylinder cylinder = new Cylinder(radius, height);
+    System.out.println("Cylinder with radius: " + cylinder.getRadius() + " and height: " + cylinder.getHeight());
+    System.out.println("Volume: " + cylinder.volume());
     }
+}
 }
 
 // Separate class
 class Cylinder extends Circle {
 
-    private double height;
+    private final  double height;
 
     public Cylinder(double radius, double height) {
         super(radius);
