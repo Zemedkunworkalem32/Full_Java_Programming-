@@ -7,17 +7,18 @@ public class FilesExample {
     public static void main(String[] args) {
 
         try {
-            FileOutputStream fos = new FileOutputStream("file.txt");
+            try(FileOutputStream fos = new FileOutputStream("file.txt")) {
 
-            String str ="This is a simple demonstration of using FileOutputStream in Java.";
+                    String str ="Hello, this is the content of the file!.";
 
-            byte[] b = str.getBytes();
+                    byte[] b = str.getBytes();
 
-            fos.write(b);
+                    fos.write(b);
 
-            System.out.println("Successfully written to the file.");
+                    System.out.println("Successfully written to the file.");
 
-            fos.close();
+                    fos.close();
+          }
 
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred: " + e.getMessage());
