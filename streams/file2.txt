@@ -1,0 +1,3 @@
+Hello, this is the content of the file from Filewriter!.java programming language.
+test file.
+copy file from one file to another.
