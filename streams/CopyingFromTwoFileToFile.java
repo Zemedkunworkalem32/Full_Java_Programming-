@@ -9,7 +9,7 @@ public class CopyingFromTwoFileToFile {
   public static void main(String[] args) {
       try {
         try(FileInputStream fis1 = new FileInputStream("file.txt");
-          FileInputStream fis2 = new FileInputStream("source2.txt");
+          FileInputStream fis2 = new FileInputStream("source1.txt");
            FileOutputStream fos = new FileOutputStream("file2.txt")){
             SequenceInputStream sis = new SequenceInputStream(fis1,fis2);
             int b;
