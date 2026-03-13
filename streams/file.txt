@@ -1,0 +1,3 @@
+Hello, this is a file example.
+This text will be written to the file.
+This is a simple demonstration of using FileOutputStream in Java.
