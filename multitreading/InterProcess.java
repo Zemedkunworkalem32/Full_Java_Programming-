@@ -1,6 +1,7 @@
 
 class MyData
 {
+  // this my comment
     int value;
     boolean flag = true;
    synchronized  public void set(int v)
