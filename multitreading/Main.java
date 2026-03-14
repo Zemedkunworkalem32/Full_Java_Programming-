@@ -1,4 +1,3 @@
-import java.lang.*;
 class ThreadMethods extends Thread {
 
     public ThreadMethods(String name) {
