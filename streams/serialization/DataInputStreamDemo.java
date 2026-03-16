@@ -9,7 +9,7 @@ class Student {
     String dept;
 }
 
-public class DataStreamDemo {
+public class DataInputStreamDemo {
     public static void main(String[] args) {
 
         try {
