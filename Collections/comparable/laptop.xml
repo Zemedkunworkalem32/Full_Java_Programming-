@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Laptop Properties</comment>
+<entry key="Brand">Hp</entry>
+<entry key="Processor">i5</entry>
+<entry key="OS">Windows</entry>
+<entry key="Model">Latitude</entry>
+</properties>

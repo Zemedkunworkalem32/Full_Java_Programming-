@@ -39,6 +39,7 @@ public class SetDemo {
       ts.add(new Point(1,2));
       ts.add(new Point(3, 4));
       ts.add(new Point(6, 8));
+      ts.add(new Point(2, 1));
 
       for(Point p :ts)
         System.out.println(p);

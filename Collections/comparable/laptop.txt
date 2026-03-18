@@ -1,0 +1,6 @@
+#Laptop Properties
+#Wed Mar 18 11:02:27 EAT 2026
+Brand=Hp
+OS=Window
+model=Latidude
+processor=i5
