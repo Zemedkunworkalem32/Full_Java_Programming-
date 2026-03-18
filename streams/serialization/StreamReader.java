@@ -8,8 +8,8 @@ class Student
 public class StreamReader {
     public static void main(String[] args) throws Exception
   {
-    FileInputStream fis = new FileInputStream("students.txt");
-    BufferedReader br = new BufferedReader(new InputStreamReader(fis) );
+    try(FileInputStream fis = new FileInputStream("students.txt");
+    BufferedReader br = new BufferedReader(new InputStreamReader(fis) )){
 
     Student s = new Student();
     s.rollno = Integer.parseInt(br.readLine());
@@ -22,6 +22,7 @@ public class StreamReader {
 
     br.close();
     fis.close();
+    }
 
   }
   

@@ -4,7 +4,7 @@ public class RandomAccess {
     public static void main(String[] args) {
 
         try {
-            RandomAccessFile rf = new RandomAccessFile("file.txt", "rw");
+            try(RandomAccessFile rf = new RandomAccessFile("file.txt", "rw")){
 
             System.out.println((char) rf.read());
             System.out.println((char) rf.read());
@@ -15,9 +15,11 @@ public class RandomAccess {
             System.out.println((char)rf.read());
             rf.seek(2);
             System.out.println((char)rf.read());
+            rf.close();
+        }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException e) {
+           System.out.println("Serialization Error: " + e.getMessage());
         }
 
     }

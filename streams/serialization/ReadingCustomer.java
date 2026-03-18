@@ -1,77 +1,67 @@
-
 import java.io.*;
 import java.util.Scanner;
 
-class Customer implements Serializable
-{
-  String CusId;
-  String name;
-  String phoneNo;
-  static int count = 1;
+class Customer implements Serializable {
+    String CusId;
+    String name;
+    String phoneNo;
+    static int count = 1;
 
-    public Customer() {
+    public Customer() {}
+
+    public Customer(String n, String pn) {
+        CusId = "C" + count;
+        count++;
+        name = n;
+        phoneNo = pn;
     }
 
-  public Customer(String n, String pn)
-  {
-    CusId = "C" + count;
-    count++;
-    name = n;
-    phoneNo = pn;
-  }
-
-  @Override
-  public String toString()
-  {
-    return """
-        Customer Details!
-        CustomerID : %s
-        Customer name : %s
-        Customer phone no. : %s
-        """.formatted(CusId, name, phoneNo);
-  }
+    @Override
+    public String toString() {
+        return """
+                Customer Details!
+                CustomerID : %s
+                Customer name : %s
+                Customer phone no. : %s
+                """.formatted(CusId, name, phoneNo);
+    }
 }
 
 public class ReadingCustomer {
-  public static void main(String[] args) {
-      
-      try {
-        try(
-          java.util.Scanner sc = new Scanner(System.in);
-          FileInputStream fis = new FileInputStream("customer.txt");
-        ObjectInputStream ois = new ObjectInputStream(fis)){
+    public static void main(String[] args) {
 
-       int length = ois.readInt();
-       Customer list[] = new Customer[length];
+        try (
+            Scanner sc = new Scanner(System.in);
+            FileInputStream fis = new FileInputStream("customer.txt");
+            ObjectInputStream ois = new ObjectInputStream(fis)
+        ) {
 
-        for(int i = 0; i<length; i++)
-        {
-          list[i] = (Customer)ois.readObject();
+            int length = ois.readInt();
+            Customer[] list = new Customer[length];
+
+            for (int i = 0; i < length; i++) {
+                list[i] = (Customer) ois.readObject();
+            }
+
+            System.out.println("Enter name of customer:");
+            String name = sc.nextLine();
+
+            boolean found = false;
+
+            for (Customer c : list) {
+                if (name.equalsIgnoreCase(c.name)) {
+                    System.out.println(c);
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found) {
+                System.out.println("Customer not found!");
+            }
+
+        } catch (IOException | ClassNotFoundException e) { // ✅ multi-catch (valid here)
+            System.out.println("Error: " + e.getMessage());
         }
-        System.out.println("Enter name of customer :");
-        String name =sc.nextLine();
-
-        boolean found = false;
-        for(Customer c :list)
-        {
-          if(name.equalsIgnoreCase(c.name)){
-            System.out.println(c);
-            found = true;
-            break;
-          }
-        }
-        if(!found)
-        {
-          System.out.println("Customer not found!");
-        }
-        ois.close();
-        fis.close();
-     }
-
-          
-      } catch (Exception e) {
-        e.printStackTrace();
-      }
-  }
+    }
 }
-

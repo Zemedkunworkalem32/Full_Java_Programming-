@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class ArithmeticSeries {
   public static void main(String[] args) {
-      Scanner sc = new Scanner(System.in);
+      try(Scanner sc = new Scanner(System.in)){
       System.out.print("Enter the first term (a): ");
       int a = sc.nextInt();
       System.out.print("Enter the common difference (d): ");
@@ -21,6 +21,7 @@ public class ArithmeticSeries {
       }
       System.out.println("\nSum of the series: " + sum);
       sc.close();
+    }
   }
   
 }

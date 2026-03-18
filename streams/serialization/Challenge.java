@@ -1,39 +1,37 @@
 import java.io.*;
 
 public class Challenge {
-  public static void main(String[] args) {
-      try{
-        float list[] = {6.4f,12.3f, 45.7f, 78.8f, 89.07f};
-        try(FileOutputStream fos = new FileOutputStream("list.txt");
-        DataOutputStream dos = new DataOutputStream(fos)){
+    public static void main(String[] args) {
 
-        dos.writeInt(list.length);
-        for(float f :list)
-        {
-          dos.writeFloat(f);
+        float list[] = {6.4f, 12.3f, 45.7f, 78.8f, 89.07f};
+
+        // Writing
+        try (FileOutputStream fos = new FileOutputStream("list.txt");
+             DataOutputStream dos = new DataOutputStream(fos)) {
+
+            dos.writeInt(list.length);
+
+            for (float f : list) {
+                dos.writeFloat(f);
+            }
+
+        } catch (IOException e) {   // ✅ single parent exception
+            System.out.println("Write Error: " + e.getMessage());
         }
 
-        dos.close();
-        fos.close();
-      }
-      }catch(Exception e){e.printStackTrace();}
+        // Reading
+        try (FileInputStream fis = new FileInputStream("list.txt");
+             DataInputStream dis = new DataInputStream(fis)) {
 
-      try {
-      try(FileInputStream fis = new FileInputStream("list.txt");
-      DataInputStream dis = new DataInputStream(fis)){
+            int length = dis.readInt();
 
-      int length = dis.readInt();
-      float data;
+            for (int i = 0; i < length; i++) {
+                float data = dis.readFloat();
+                System.out.println(data);
+            }
 
-      for(int i = 0; i<length; i++)
-      {
-        data = dis.readFloat();
-        System.out.println(data);
-      }
-      dis.close();
-      fis.close();
+        } catch (IOException e) {   // ✅ covers all IO exceptions
+            System.out.println("Read Error: " + e.getMessage());
+        }
     }
-      }catch(Exception e){e.printStackTrace();}
-  }
-  
 }

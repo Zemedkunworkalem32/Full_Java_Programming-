@@ -49,7 +49,7 @@ public class ObjInSerDemo {
         } catch (FileNotFoundException e) {
             System.out.println("File not found! Run ObjOutputDemo first to create stud.txt");
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("Serialization Error: " + e.getMessage());
         }
     }
 }

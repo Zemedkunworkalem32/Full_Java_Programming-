@@ -8,16 +8,13 @@ class Student implements Serializable {
     public static int data = 10;
     public transient int t;
 
-    // default constructor
     public Student() {}
 
-    // parameterized constructor
     public Student(int rn, String n, String dt, float a) {
         rollno = rn;
         name = n;
         dept = dt;
         avg = a;
-        // proof that static and transient are not stored
         data = 500;
         t = 500;
     }
@@ -40,15 +37,14 @@ public class ObjOutputDemo {
 
         Student s = new Student(20, "John", "Software Engineering", 87.3f);
 
-        // Serialize the student object to stud.txt
         try (FileOutputStream fos = new FileOutputStream("stud.txt");
              ObjectOutputStream oos = new ObjectOutputStream(fos)) {
 
             oos.writeObject(s);
             System.out.println("Student object serialized to stud.txt");
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("Serialization Error: " + e.getMessage());
         }
     }
 }

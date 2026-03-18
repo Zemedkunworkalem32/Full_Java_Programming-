@@ -3,7 +3,7 @@ import java.time.Year;
 public class Students {
 
     final private String name;
-    private String rollNo;
+    final private String rollNo;
     private static int count = 1;
 
     private String assignRollNo() {
@@ -27,5 +27,9 @@ public class Students {
         Students student1 = new Students("Alice");
         Students student2 = new Students("Bob");
         Students student3 = new Students("Charlie");
+
+        System.out.println(student1.name + " " + student1.rollNo);
+        System.out.println(student2.name + " " + student2.rollNo);
+        System.out.println(student3.name + " " + student3.rollNo);
     }
 }

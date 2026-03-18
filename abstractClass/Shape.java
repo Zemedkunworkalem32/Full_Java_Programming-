@@ -45,10 +45,6 @@ class Circle extends Shape {
     double area = length * width;
     System.out.println("Area of the rectangle: " + area);
   }
-
-}
-
-class Main {
   public static void main(String[] args) {
     Circle circle = new Circle(5);
     circle.Perimeter();
@@ -58,4 +54,6 @@ class Main {
     rectangle.Perimeter();
     rectangle.Area();
   }
+
 }
+

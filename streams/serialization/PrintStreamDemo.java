@@ -8,8 +8,8 @@ class Student
 public class PrintStreamDemo {
     public static void main(String[] args) throws Exception
   {
-    FileOutputStream fos = new FileOutputStream("students.txt");
-    PrintStream ps = new PrintStream(fos);
+    try(FileOutputStream fos = new FileOutputStream("students.txt");
+    PrintStream ps = new PrintStream(fos)){
 
     Student s = new Student();
     s.rollno = 10;
@@ -22,6 +22,7 @@ public class PrintStreamDemo {
 
     ps.close();
     fos.close();
+    }
 
   }
   
