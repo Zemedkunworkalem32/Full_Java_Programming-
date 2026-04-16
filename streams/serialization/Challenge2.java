@@ -52,8 +52,8 @@ public class Challenge2 {
      }
 
           
-      } catch (Exception e) {
-        e.printStackTrace();
+      } catch (IOException e) {
+        System.err.println("An I/O error occurred: " + e.getMessage());
       }
   }
 }
