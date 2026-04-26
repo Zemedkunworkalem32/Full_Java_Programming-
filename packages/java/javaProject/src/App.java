@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+
 import university.Student;
 import university.Teacher;
 
@@ -13,7 +14,9 @@ public class App {
 
         Student st = new Student();
         st.addStudent(students);
+        st.addStudentToDB(students);
         st.showStudents();
+        st.showStudentsFromDB();
 
       //teachers 
         ArrayList<Teacher> teachers = new ArrayList<>();
@@ -22,6 +25,8 @@ public class App {
 
         Teacher tc = new Teacher(0, "", "");
         tc.addTeacher(teachers);
+        tc.addTeacherToDB(teachers);
         tc.showTeachers();
+        tc.showTeacherFromDB();
     }
 }
